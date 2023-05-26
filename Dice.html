@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo Random</title>
+
+    <style>
+        div.main {
+            width: 60vw;
+            height: 100vh;
+            /* display: flex; */
+            /* flex-direction: row; */
+            text-align: center;
+            margin: auto;
+            align-items: center;
+        }
+
+        .player {
+            display: inline-block;
+            text-align: center
+        }
+
+        .player img {
+
+            padding: 20px;
+            width: 300px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            margin-top: 20px;
+            border: 1px solid aqua;
+            background-color: #fff;
+            color: aqua;
+            transition: 0.5s ease-in-out;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: aqua;
+            border: 1px solid #fff;
+            color: #fff;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Playing</h1>
+        <div class="player">
+            <p>PLAYER 1</p>
+            <img src="img/Dice1.png" id="img1">
+        </div>
+        <div class="player">
+            <p>PLAYER 2</p>
+            <img src="img/Dice6.png" id="img2">
+        </div>
+        <div>
+            <button onclick="Cl()">Click Here!</button>
+        </div>
+    </div>
+    <script>
+        Cl = () => {
+            const change1 = Math.floor(Math.random() * 6) + 1;
+            const play1dice = "img/Dice" + change1 + ".png";
+            document.getElementById('img1').setAttribute('src', play1dice);
+
+            const change2 = Math.floor(Math.random() * 6) + 1;
+            const play2dice = "img/Dice" + change2 + ".png";
+            document.getElementById('img2').setAttribute('src', play2dice);
+
+            if (change1 > change2) {
+                document.querySelector('h1').innerHTML = "PLayer1 is winner"
+            }
+            else if (change1 < change2) {
+                document.querySelector('h1').innerHTML = "Player 2 is won"
+            }
+            else {
+                document.querySelector('h1').innerHTML = "Drow"
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
